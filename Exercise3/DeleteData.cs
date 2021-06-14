@@ -10,18 +10,32 @@ namespace Exercise3
         public List<Expenses> DeleteCard(List<Expenses> account, int no)
         {
             Console.WriteLine("Please the number of the card to be deleted");
-            int deleteNo = Convert.ToInt32(Console.ReadLine());
+            int deleteNo = 0;
+            bool check = true;
+            while (check)
+            {
+                deleteNo = Convert.ToInt32(Console.ReadLine());
+                if (deleteNo < 1 || deleteNo >= no)
+                {
+                    Console.WriteLine("Incorrect card number, please re-enter:");
+                }
+                else
+                {
+                    check = false;
+                }
+            }
+                
 
             var results = from e in account
-                          where e.No == deleteNo
+                          where e.No != deleteNo
                           select e;
-
+            List<Expenses> res = new List<Expenses>();
             foreach (var e in results)
             {
-                account.Remove(e);
+                res.Add(e);
             }
 
-            return account;
+            return res;
 
         }
         
