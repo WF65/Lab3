@@ -19,6 +19,7 @@ namespace Exercise3
             SetCategory();
             SetAmount();
             No = no;
+            Console.WriteLine("---------------------------");
         }
 
         void SetCategory()
@@ -122,7 +123,7 @@ namespace Exercise3
             }
 
             Date = Convert.ToString(year) + monthString + dayString;
-            Console.WriteLine("---------------------------");
+
         }
     }
 }
