@@ -10,7 +10,7 @@ namespace Exercise3
         public void SortExpenses(List<Expenses> account)
         {
             var results = from e in account
-                          orderby e.Date, e.Description
+                          orderby e.Date, e.Description ascending
                           select e;
 
             //List<Expenses> res = new List<Expenses>();
