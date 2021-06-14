@@ -7,20 +7,24 @@ namespace Exercise3
 {
     class SortExpense
     {
-        public List<Expenses> SortExpenses(List<Expenses> account)
+        public void SortExpenses(List<Expenses> account)
         {
             var results = from e in account
-                          orderby e.Date ascending
-                          orderby e.Description ascending
+                          orderby e.Date, e.Description
                           select e;
 
-            List<Expenses> res = new List<Expenses>();
+            //List<Expenses> res = new List<Expenses>();
+            //foreach (var e in results)
+            //{
+            //    res.Add(e);
+            //}
+
+            //return res;
+
             foreach (var e in results)
             {
-                res.Add(e);
+                Console.WriteLine("{0}, {1}, {2}, {3}, {4}", e.No, e.Date, e.Description, e.Category, e.Amount);
             }
-
-            return res;
         }
     }
 }
