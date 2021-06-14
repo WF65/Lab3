@@ -12,7 +12,7 @@ namespace Exercise3
             List<Expenses> account = new List<Expenses>();
             int noOfExpenses = 1;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 4; i++)
             {
                 Expenses e = new Expenses();
                 e.CreateExpense(noOfExpenses);
@@ -20,7 +20,10 @@ namespace Exercise3
                 noOfExpenses++;
             }
 
-            Console.WriteLine(account);
+            foreach (var e in account)
+            {
+                Console.WriteLine("{0}, {1}, {2}, {3}, {4}", e.No, e.Date, e.Description, e.Category, e.Amount);
+            }
             Console.WriteLine("-------------------------");
 
             SearchCost searchCost = new SearchCost();
@@ -33,12 +36,18 @@ namespace Exercise3
 
             SortExpense sortExpense = new SortExpense();
             sortExpense.SortExpenses(account);
-            Console.WriteLine(account);
+            foreach (var e in account)
+            {
+                Console.WriteLine("{0}, {1}, {2}, {3}, {4}", e.No, e.Date, e.Description, e.Category, e.Amount);
+            }
             Console.WriteLine("-------------------------");
 
             DeleteData deleteData = new DeleteData();
             account = deleteData.DeleteCard(account, noOfExpenses);
-            Console.WriteLine(account);
+            foreach (var e in account)
+            {
+                Console.WriteLine("{0}, {1}, {2}, {3}, {4}", e.No, e.Date, e.Description, e.Category, e.Amount);
+            }
 
 
 
